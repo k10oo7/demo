@@ -1,17 +1,25 @@
 <h2>Course Details</h2>
-<table id="courses">
+<div class="md-form mt-0 w-25">
+  <input class="form-control" type="text" placeholder="Search by provider" [(ngModel)]="providerName"  (ngModelChange)="filterCources()">
+</div><br>
+<table id="courses" sortable-table (sorted)="onSorted($event)">
   <tr>
     <th>Course Name</th>
     <th>Provider</th>
     <th>Universities/Institutions</th>
     <th>Parent Subject</th>
     <th>Child Subject</th>
+    <th sortable-column="nextSessionDate" class="cursor-pointer">Next Session Date</th>
+    <th sortable-column="length" sort-direction="asc" class="cursor-pointer">Length</th>
   </tr>
+  <!-- <span class="glyphicon glyphicon-arrow-up fr"></span> -->
   <tr *ngFor="let course of courseDetails">
     <td>{{course.courseName}}</td>
     <td>{{course.provider}}</td>
     <td>{{course.universitiesOrInstitutions}}</td>
     <td>{{course.parentSubject}}</td>
     <td>{{course.childSubject}}</td>
+    <td>{{course.nextSessionDate}}</td>
+    <td>{{course.length}}</td>
   </tr>
   </table>
