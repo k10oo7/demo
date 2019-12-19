@@ -1,0 +1,17 @@
+<h2>Course Details</h2>
+<table id="courses">
+  <tr>
+    <th>Course Name</th>
+    <th>Provider</th>
+    <th>Universities/Institutions</th>
+    <th>Parent Subject</th>
+    <th>Child Subject</th>
+  </tr>
+  <tr *ngFor="let course of courseDetails">
+    <td>{{course.courseName}}</td>
+    <td>{{course.provider}}</td>
+    <td>{{course.universitiesOrInstitutions}}</td>
+    <td>{{course.parentSubject}}</td>
+    <td>{{course.childSubject}}</td>
+  </tr>
+  </table>
