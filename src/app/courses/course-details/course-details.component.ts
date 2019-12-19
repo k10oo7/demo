@@ -11,7 +11,8 @@ import { ColumnSortedEvent } from 'src/app/Shared/services/sort.service.js';
 })
 export class CourseDetailsComponent implements OnInit {
   courseDetails: Courses[] = courses;
-  providerName = '';
+  searchBy = 'provider';
+  searchText = '';
   initialCourseDetails: Courses[];
   sortedColumn: ColumnSortedEvent;
   constructor() { }
@@ -22,8 +23,8 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   filterCources() {
-    this.providerName = _.toLower(this.providerName);
-    this.courseDetails = _.filter(this.initialCourseDetails, course => _.includes(_.toLower(course.provider), this.providerName));
+    this.searchText = _.toLower(this.searchText);
+    this.courseDetails = _.filter(this.initialCourseDetails, course => _.includes(_.toLower(course[this.searchBy]), this.searchText));
     this.sortColumn();
   }
 

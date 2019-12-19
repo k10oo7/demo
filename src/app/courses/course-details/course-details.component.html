@@ -1,7 +1,12 @@
 <h2>Course Details</h2>
-<div class="md-form mt-0 w-25">
-  <input class="form-control" type="text" placeholder="Search by provider" [(ngModel)]="providerName"  (ngModelChange)="filterCources()">
-</div><br>
+<div class="md-form mt-0 search">
+  <input class="form-control w-25 margin-right" type="text" placeholder="Search by provider" [(ngModel)]="searchText"  (ngModelChange)="filterCources()">
+  <select class="form-control w-25" [(ngModel)]="searchBy" (change)="filterCources()">
+    <option value="nextSessionDate">Next Session Date</option>
+    <option value="childSubject">Child Subject</option>
+    <option value="provider">Provider</option>
+  </select>
+</div><br><br>
 <table id="courses" sortable-table (sorted)="onSorted($event)">
   <tr>
     <th>Course Name</th>
